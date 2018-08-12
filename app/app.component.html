@@ -1,0 +1,70 @@
+<div class="main-holder">
+  <div class="header-holder">
+    <h1>Автомобільний проект</h1>
+  </div>
+
+<div class="menu-holder">
+  <button (click)="filtersCars('Нові')">Нові</button>
+  <button (click)="filtersCars('Старі')">Старі</button>
+  <button (click)="filtersCars('Дорогі')">Дорогі</button>
+  <button (click)="filtersCars('Німецькі')">Німецькі</button>
+  <button (click)="filtersCars('Італійські')">Італійські</button>
+  <button (click)="filtersCars('Французькі')">Французькі</button>
+  <button (click)="filtersCars('Українські')">Українські</button>
+  <button (click)="filtersCars('Японські')">Японські</button>
+  <button (click)="filtersCars()">Усі</button>
+
+</div>
+<div class="table-holder">
+  <table>
+    <tr>
+      <th (click)="sortCars('title')">Назва</th>
+      <th (click)="sortCars('model')">Модель</th>
+      <th (click)="sortCars('country')">Країна</th>
+      <th (click)="sortCars('year')">Рік</th>
+      <th (click)="sortCars('price')">Ціна</th>
+      <th (click)="sortCars('color')">Колір</th>
+    </tr>
+    <tr *ngFor = "let car of carsArray; let i = index">
+      <td>{{ car.title }}</td>
+      <td>{{ car.model }}</td>
+      <td>{{ car.country }}</td>
+      <td [ngClass]="{'is-new': car.year > 2012}">{{ car.year }}</td>
+      <td>{{ car.price }}</td>
+      <td id="color" [ngStyle] = "{background: car.color}" [ngStyle] = "{border: car.color}"></td>
+    </tr>
+    <tr class="empty-tr" *ngIf="!carsArray">
+      <td colspan="6">Загрузка...</td>
+    </tr>
+  </table>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
